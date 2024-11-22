@@ -1,0 +1,216 @@
+/* Root Variables for Light/Dark Themes */
+:root {
+    --font-family: 'Roboto', sans-serif;
+    --font-size-heading: 2.5rem;
+    --font-size-subheading: 1.2rem;
+    --font-size-paragraph: 1rem;
+    --primary-color: #00ff00;
+    --background-color: #121212;
+    --text-color: #fff;
+    --button-bg: #333;
+    --button-hover-bg: #444;
+    --border-radius: 8px;
+}
+
+[data-theme="light"] {
+    --background-color: #f0f0f0;
+    --text-color: #000;
+    --button-bg: #ddd;
+    --button-hover-bg: #bbb;
+    --primary-color: #0066ff;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--background-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .logo {
+    font-size: var(--font-size-heading);
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li {
+    position: relative;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 5px 10px;
+    font-size: var(--font-size-paragraph);
+    border-radius: var(--border-radius);
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: var(--background-color);
+    background-color: var(--primary-color);
+}
+
+/* Dropdown Styling */
+.Dropdown ul {
+    display: none;
+    position: absolute;
+    background-color: var(--button-bg);
+    top: 100%;
+    left: 0;
+    list-style: none;
+    padding: 10px;
+    border-radius: var(--border-radius);
+}
+
+.Dropdown:hover ul {
+    display: block;
+}
+
+.Dropdown ul li a {
+    display: block;
+    padding: 5px;
+    color: var(--text-color);
+}
+
+.Dropdown ul li a:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Hero Section */
+.intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('Images/12.jpg') center/cover no-repeat;
+    position: relative;
+    text-align: center;
+}
+
+.intro .content {
+    text-align: center;
+    max-width: 600px;
+}
+
+.intro h1 {
+    font-size: var(--font-size-heading);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.intro .subtitle {
+    font-size: var(--font-size-subheading);
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--button-bg);
+    border-radius: 50%;
+    color: var(--text-color);
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Profile Image Section */
+.profile-img {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+}
+
+.profile-img img {
+    border-radius: 50%;
+    border: 5px solid var(--text-color);
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    font-size: var(--font-size-paragraph);
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* Light/Dark Mode Toggle */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .intro {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-img {
+        position: relative;
+        margin-top: 20px;
+        right: auto;
+        bottom: auto;
+    }
+}
