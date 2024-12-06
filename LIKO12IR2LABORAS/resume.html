@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="grozybes.css"/>
+    <title>Musu puslapis</title>
+</head>
+<body>
+    <header>
+        <div class="logo">ㄥ卂乃卂 ᗪ丨乇几卂</div>
+        <nav>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resume.html" class="active">Resume</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="11laboras.html" >MathJAX</a></li>
+                <li class="dropdown">
+                    <a href="#">Dropdown</a>
+                    <ul class="dropdown-options">
+                        <li><a href="#option1">Option 1</a></li>
+                        <li><a href="#option2">Option 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="resume-section">
+        <h1>Emily Jones</h1>
+        <p>Freelance Designer | UI/UX Specialist | Digital Strategist</p>
+
+        <div class="contact-info">
+            <p>Email: emily.jones@example.com</p>
+            <p>Phone: (123) 456-7890</p>
+            <p>Location: New York, NY</p>
+            <p>LinkedIn: <a href="https://lt.linkedin.com/in/sem%C5%ABras-savickas-8b9828314">linkedin.com/in/SemurasSavickas</a></p>
+            <p>Portfolio: <a href="mailto:semurassem@gmail.com">semurassem@gmail.com</a></p> <!-- Corrected the link to a mailto -->
+        </div>
+
+        <hr>
+
+        <h2>Professional Experience</h2>
+        <!-- Experience items -->
+        <div class="experience-item">
+            <h3>Lead UI/UX Designer</h3>
+            <p>Creative Minds Agency | January 2020 - Present</p>
+            <ul>
+                <li>Led the design team on projects for high-profile clients, improving user engagement by over 30% through strategic design improvements.</li>
+                <li>Collaborated with developers, product managers, and clients to ensure seamless user experiences across web and mobile platforms.</li>
+                <li>Designed and implemented UX guidelines and components, reducing development time by 20%.</li>
+            </ul>
+        </div>
+
+        <!-- More experience items -->
+        <div class="experience-item">
+            <h3>Freelance Graphic Designer</h3>
+            <p>Remote | June 2018 - December 2019</p>
+            <ul>
+                <li>Worked with over 50 clients in various industries, including tech startups, non-profits, and e-commerce brands.</li>
+                <li>Specialized in brand identity and logo design, helping clients create cohesive visual narratives across multiple platforms.</li>
+                <li>Built and maintained positive client relationships, resulting in a 95% repeat client rate.</li>
+            </ul>
+        </div>
+
+        <!-- Education Section -->
+        <hr>
+        <h2>Education</h2>
+        <div class="education-item">
+            <h3>Bachelor of Arts in Graphic Design</h3>
+            <p>University of California, Los Angeles | Graduated May 2016</p>
+            <p>GPA: 3.8</p>
+            <ul>
+                <li>Relevant Coursework: Visual Design, Typography, Digital Illustration, Interaction Design, Branding</li>
+                <li>Honors: Dean's List, 2014-2016</li>
+            </ul>
+        </div>
+
+        <hr>
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            <li>Design Tools: Adobe Photoshop, Illustrator, InDesign, Figma, Sketch</li>
+            <li>Front-End Development: HTML, CSS, JavaScript</li>
+            <li>User Research & Testing: Prototyping, A/B Testing, User Interviews</li>
+            <li>Branding & Identity: Logo Design, Visual Storytelling, Brand Guidelines</li>
+            <li>Project Management: Agile, Trello, Slack, Asana</li>
+        </ul>
+
+        <hr>
+        <h2>Certifications</h2>
+        <ul class="certifications-list">
+            <li>Certified UX Designer, Nielsen Norman Group, 2019</li>
+            <li>Adobe Certified Expert in Photoshop, 2018</li>
+            <li>Google Analytics for Beginners, Google, 2020</li>
+        </ul>
+    </section>
+    <button id="scrollToTop" style="display: none;">↑</button>
+
+    <button class="theme-toggle">Light/Dark Mode</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollToTopButton = document.getElementById('scrollToTop');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 200) {
+                    scrollToTopButton.style.display = 'block';
+                } else {
+                    scrollToTopButton.style.display = 'none';
+                }
+            });
+
+            scrollToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth',
+                });
+            });
+        });
+    </script>
+    <script src="JSfileas.js"></script>
+
+    <footer>
+        <p>&copy; 2024 ㄥ卂乃卂 ᗪ丨乇几卂. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="grozybes.css"/>
+    <title>My Portfolio</title>
+</head>
+<body>
+<header>
+        <div class="logo">ㄥ卂乃卂 ᗪ丨乇几卂</div>
+        <nav>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html"class="active">Portfolio</a></li>
+                <li><a href="11laboras.html" >MathJAX</a></li>
+                <li class="dropdown">
+                    <a href="#">Dropdown</a>
+                    <ul class="dropdown-options">
+                        <li><a href="#option1">Option 1</a></li>
+                        <li><a href="#option2">Option 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="portfolio-section">
+        <h1>My Portfolio</h1>
+        <p>A selection of my recent projects in design and development.</p>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="Images/12345.png" alt="Project 1" class="portfolio-image">
+                <div class="portfolio-info">
+                    <h3>Project Title 1</h3>
+                    <p>Short description of Project 1. Explain the purpose, tools used, and outcome.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="Images/1234.png" alt="Project 2" class="portfolio-image">
+                <div class="portfolio-info">
+                    <h3>Project Title 2</h3>
+                    <p>Short description of Project 2. Explain the purpose, tools used, and outcome.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="Images/123.png" alt="Project 3" class="portfolio-image">
+                <div class="portfolio-info">
+                    <h3>Project Title 3</h3>
+                    <p>Short description of Project 3. Explain the purpose, tools used, and outcome.</p>
+                </div>
+            </div>
+           
+        </div>
+    </section>
+    <button id="scrollToTop" style="display: none;">↑</button>
+
+    <button class="theme-toggle">Light/Dark Mode</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollToTopButton = document.getElementById('scrollToTop');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 200) {
+                    scrollToTopButton.style.display = 'block';
+                } else {
+                    scrollToTopButton.style.display = 'none';
+                }
+            });
+
+            scrollToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth',
+                });
+            });
+        });
+    </script>
+    <script src="JSfileas.js"></script>
+
+    <footer>
+        <p>&copy; 2024 ㄥ卂乃卂 ᗪ丨乇几卂. All rights reserved.</p>
+    </footer>
+</body>
+</html>
