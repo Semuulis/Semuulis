@@ -1,0 +1,77 @@
+/* Base styles */
+body {
+    font-family: 'Arial', sans-serif; /* Using Arial for a clean look */
+    color: #333; /* Dark grey text for better readability */
+    background-color: #f4f4f4; /* Light grey background to reduce eye strain */
+    margin: 0;
+    padding: 20px; /* Padding around the content for spacing */
+    line-height: 1.6; /* Improved line spacing for readability */
+}
+
+/* Section styling */
+.about-section {
+    background-color: #fff; /* White background for the content area */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px; /* Rounded corners for the section */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+/* Typography */
+h1, h2 {
+    color: #222; /* Slightly darker color for headings */
+}
+
+h1 {
+    font-size: 2.4rem; /* Larger font size for main heading */
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-top: 2em; /* Space above subheadings */
+    margin-bottom: 0.5em;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+ul {
+    padding-left: 20px; /* Indent for list */
+}
+
+li {
+    margin-bottom: 0.5em; /* Space between list items */
+}
+
+/* Link styles */
+a {
+    color: #0066cc; /* Bright blue for links for visibility */
+    text-decoration: none; /* No underline to keep the clean look */
+}
+
+a:hover, a:focus {
+    text-decoration: underline; /* Underline on hover for clarity */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Less padding on smaller screens */
+    }
+
+    .about-section {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem; /* Smaller heading on mobile */
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}

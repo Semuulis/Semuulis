@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="grozybes.css">
+    <script src="JSfileas.js"></script>
+
+    <title>Contact Form</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ㄥ卂乃卂 ᗪ丨乇几卂</div>
+        <div id="clock" class="clock"></div>
+        <nav>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="11laboras.html">MathJAX</a></li>
+                <li><a href="Reviews.html" class="active">Reviews</a></li>
+                <li class="dropdown">
+                    <a href="#">Dropdown</a>
+                    <ul class="dropdown-options">
+                        <li><a href="#option1">Option 1</a></li>
+                        <li><a href="#option2">Option 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contact-form-section">
+            <h2>Contact Form</h2>
+            <form id="contact-form">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone:</label>
+                <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    pattern="(\+370|8)[0-9]{8}" 
+                    required 
+                    title="Phone number must be in the format +370XXXXXXXX or 8XXXXXXXX"
+                />
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+
+                <fieldset>
+                    <legend>Rate the following on a scale of 1 to 10:</legend>
+
+                    <label for="question1">Finding information:</label>
+                    <input type="number" id="question1" name="question1" min="1" max="10" required>
+
+                    <label for="question2">Site design:</label>
+                    <input type="number" id="question2" name="question2" min="1" max="10" required>
+
+                    <label for="question3">Appearance and comfort of use:</label>
+                    <input type="number" id="question3" name="question3" min="1" max="10" required>
+
+                    <label for="question4">Loading speed:</label>
+                    <input type="number" id="question4" name="question4" min="1" max="10" required>
+
+                    <label for="question5">Overall experience:</label>
+                    <input type="number" id="question5" name="question5" min="1" max="10" required>
+                </fieldset>
+
+                <button type="submit" id="submit-button">Submit</button>
+            </form>
+
+            <div id="result" class="result"></div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('JavaScript Loaded'); 
+        
+            const form = document.getElementById('contact-form');
+            const resultDiv = document.getElementById('result');
+        
+            if (!form) {
+                console.error('Form not found!');
+                return;
+            }
+    
+            const autoFillButton = document.createElement('button');
+            autoFillButton.textContent = 'Fill Form Automatically';
+            autoFillButton.type = 'button';
+            autoFillButton.style.marginBottom = '10px';
+            form.prepend(autoFillButton);
+        
+            autoFillButton.addEventListener('click', () => {
+                console.log('testing sesion');
+                form.firstName.value = 'Ruta';
+                form.lastName.value = 'Lazauskiene';
+                form.email.value = 'rutele.lauz@mail.ru';
+                form.phone.value = '+37066666666';
+                form.address.value = 'Prieskampio g. 123A';
+                form.question1.value = Math.floor(Math.random() * 10) + 1;
+                 form.question2.value = Math.floor(Math.random() * 10) + 1;
+                    form.question3.value = Math.floor(Math.random() * 10) + 1;
+                    form.question4.value = Math.floor(Math.random() * 10) + 1;
+                    form.question5.value = Math.floor(Math.random() * 10) + 1;
+            });
+        
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+        
+                const formData = new FormData(form);
+                const dataObject = Object.fromEntries(formData.entries());
+        
+                console.log('Form Data:', dataObject); 
+        
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const phonePattern = /^(\+370|8)[0-9]{8}$/;
+                if (!emailPattern.test(dataObject.email)) {
+                    alert('Invalid email address!');
+                    return;
+                }
+                if (!phonePattern.test(dataObject.phone)) {
+                    alert('Invalid phone number! Must be in the format +370XXXXXXXX or 8XXXXXXXX.');
+                    return;
+                }
+                if (!dataObject.address.trim()) {
+                    alert('Address cannot be empty.');
+                    return;
+                }
+        
+
+                const ratings = [
+                    parseInt(dataObject.question1),
+                    parseInt(dataObject.question2),
+                    parseInt(dataObject.question3),
+                    parseInt(dataObject.question4),
+                    parseInt(dataObject.question5),
+                ];
+                const averageRating = (
+                    ratings.reduce((sum, rating) => sum + rating, 0) / ratings.length
+                ).toFixed(2);
+        
+                let color = 'green';
+                if (averageRating < 4) color = 'red';
+                else if (averageRating < 7) color = 'orange';
+        
+                resultDiv.innerHTML = `
+                    <p><strong>Result:</strong></p>
+                    <p style="font-size: 18px; font-weight: bold;">
+                        ${dataObject.firstName} ${dataObject.lastName} (${dataObject.email}): 
+                        <span style="color: ${color};">${averageRating}</span>
+                    </p>
+                `;
+        
+                console.log('Result Displayed:', averageRating);
+            });
+        });
+        
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock').textContent = timeString;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+        
+    </script>
+
+    <footer>
+        <p>&copy; 2024 ㄥ卂乃卂 ᗪ丨乇几卂. All rights reserved.</p>
+    </footer>
+
+    <script src="JSfileas.js"></script>
+</body>
+</html>
